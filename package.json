@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start:dev": "ng serve --c=dev",
+    "start:prod": "ng serve --c=prod",
+    "build:dev": "ng build --c=dev",
+    "build:prod": "ng build --c=prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "backend": "json-server --watch ./src/app/data/backend/db.json"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +21,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "ngx-pagination": "^6.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

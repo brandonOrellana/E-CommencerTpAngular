@@ -1,0 +1,14 @@
+<div class="dsc-card" *ngIf="data" >
+    <div class="dsc-card__img">
+        <!-- <img src="{{data.image}}" alt="">-->
+    </div>
+    <div class="dsc-card__info">
+        <h2>{{data.nombre}}</h2>
+        <h4>Categoria: {{data.categoria}}</h4>
+        <h5>Stock: {{data.stock}}</h5>
+        <h5>Precio: {{data.precio}}</h5>
+        <p>{{data.descripcion}}</p>
+    </div>
+    <button class="btn btn-primary" routerLink="/panel/product/{{data.id}}">Detalle</button>
+    <button class="btn btn-primary" (click)=addtocart(data)>Add to cart</button>
+</div>

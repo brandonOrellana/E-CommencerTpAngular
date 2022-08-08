@@ -61,6 +61,14 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "dev":{
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -73,6 +81,9 @@
             },
             "development": {
               "browserTarget": "ecommencer:build:development"
+            },
+            "dev": {
+              "browserTarget": "ecommencer:build:dev"
             }
           },
           "defaultConfiguration": "development"
@@ -103,5 +114,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
