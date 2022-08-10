@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ICompra } from 'app/interfaces/compra.metadata';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ProductsService {
     return this.httpClient.get(this.url + '?page=' + page + '&size='+size);
   }
 
-  private test = {
+  private test :ICompra = {
     idCliente: 1,
     itemsDTO: [
       {
@@ -31,13 +32,12 @@ export class ProductsService {
     precioEnDolares: 0.6
   };
 
-  addCompra(): Observable<any>{
-    //const headers = { 'content-type': 'application/json'};
+  addCompra(compra:ICompra): Observable<any>{
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache'
     });
-    const body=JSON.stringify(this.test);
+    const body=JSON.stringify(compra);
     console.log(body);
     return this.httpClient.post<any>("http://localhost:8080/compra",body,{headers: httpHeaders});
   }

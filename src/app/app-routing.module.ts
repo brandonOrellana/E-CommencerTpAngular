@@ -2,16 +2,28 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
 import { CartComponent } from './component/cart/cart.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/panel/product',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
     path: 'cart',
     component:CartComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component:LoginComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'register',
+    component:RegisterComponent,
     pathMatch: 'full'
   },
   {

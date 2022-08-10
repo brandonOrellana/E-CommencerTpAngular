@@ -12,6 +12,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './component/cart/cart.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { CartComponent } from './component/cart/cart.component';
     SkeletonComponent,
     NavigationComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
