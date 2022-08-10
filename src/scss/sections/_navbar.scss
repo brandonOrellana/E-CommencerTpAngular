@@ -1,0 +1,42 @@
+@use'../custom' as *;
+@use'../components/mixins' as *;
+.menu{
+    @include gradient;
+    
+    li {
+        padding: 0 0.7rem;
+
+        a {
+            color: $white !important;
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+    }
+}
+
+.imgLogo{
+    /*height:100px;*/
+    width: 90px;
+    padding: 8;
+}
+
+.cart{
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-left: 10px;
+    border-radius: 50%;
+    i{
+        color: $white;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+    .badge{
+        position: relative; 
+        margin-left: 25px;
+        margin-top:-45px;
+        background-color: $footer;
+        vertical-align: top;
+    }
+
+}
+

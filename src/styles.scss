@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'scss/custom';
+
+@use 'scss/components/animations';
+@use 'scss/components/buttons';
+@use 'scss/components/mixins';
+@use 'scss/components/typography';
+
+@use 'scss/sections/navbar';
+@use 'scss/sections/footer';
+@use 'scss/sections/intro-section';
+@use 'scss/sections/portafolio';

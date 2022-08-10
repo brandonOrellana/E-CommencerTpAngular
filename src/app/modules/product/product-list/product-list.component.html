@@ -5,12 +5,32 @@
     <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
      <div class="col-12">
         <app-card-product [data]="product" *ngFor="let product of products| paginate: { itemsPerPage: i, currentPage: page, totalItems: total }" class="col-12 col-md-6 col-xl-3">
-            
         </app-card-product>
         <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
     </div>
 
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row text-center mt-5s">
+                <h1 class="display-3 fw-bold text-capitalize">Nuestros productos</h1>
+                <div class="heading-line"></div>
+                <p class="lead">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint porro temporibus distinctio.
+                </p>
+              </div>
+        </div>
+        <!-- FILTER BUTONS -->
+        <div class="row mt-5 mb-4 g-3 text-center ">
+            <div class="col-md-12">
+              <button class="btn btn-outline-primary filter" type="button">All</button>
+              <button class="btn btn-outline-primary filter" type="button">Hogar</button>
+              <button class="btn btn-outline-primary filter" type="button">Ropa</button>
+              <button class="btn btn-outline-primary filter" type="button">Herramientas</button>
+            </div>
+          </div>
 
+
+    </section>
 
     <!--<table class="table table-bordered">
         <tr>
