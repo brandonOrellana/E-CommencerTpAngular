@@ -1,5 +1,20 @@
 <app-navigation></app-navigation>
+
+<section id="home" class="intro-section" *ngIf="products.length !=0">
+    <div class="container">
+      <div class="row align-items-center text-white">
+        <div class="col-md-6 intros">
+          <h1 class="display-2">
+            <span class="display-2--intro">Mi Carrito</span>
+          </h1>
+        </div>
+        
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,96L48,80C96,64,192,32,288,64C384,96,480,192,576,208C672,224,768,160,864,128C960,96,1056,96,1152,106.7C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+  </section>
 <div class="container-fluid dsc-skeleton-content">
+
 
 <ng-container *ngIf="products.length !=0">
     <div class="container">
@@ -7,11 +22,10 @@
             <div class="cart-product">
                 <table class="table table-responsive">
                     <thead>
-                        <tr>
-                            <th>Sr.No</th>
+                        <tr class="">
+                            <th >Num</th>
                             <th>Nombre Producto</th>
                             <th>Descripcion</th>
-                            <th>Precio</th>
                             <th>Cantidad</th>
                             <th>Precio</th>
                             <th>Total</th>
@@ -22,10 +36,9 @@
                         <tr *ngFor="let item of products; let i = index">
                             <td>{{i+1}}</td>
                             <td>{{item.nombre}}</td>
-                            <td style="width: 25%;">{{item.descripcion}}</td>
-                            <th style="width: 12%;">{{item.precio}}</th>
+                            <td style="width: 50%;">{{item.descripcion}}</td>
                             <td style="width: 12%;">{{item.cantidad}}</td>
-                            <td style="width: 12%;">{{item.precio}}</td>
+                            <td style="width: 12%;"> $ {{item.precio}}</td>
                             <td style="width: 12%;">{{item.total}}</td>
                             <td>
                                 <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
@@ -33,10 +46,15 @@
                         </tr>
                         <tr>
                             <td colspan="4"></td>
-                            <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
-                            <td><button routerLink="/panel/product" class="btn btn-primary">Shop More</button></td>
-                            <td><button class="btn btn-success" (click)="addCompra()">Checkout</button></td>
-                            <td><strong>Cantidad Total : ${{grandTotal}}</strong></td>
+                            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                                <td><button (click)="emptycart()" class="btn btn-dark">Vaciar carrito</button></td>
+                            <td><button routerLink="/panel/product" class="btn btn-primary">Volver tienda</button></td>
+                            <td><button class="btn btn-success" (click)="addCompra()">Registrar Compra</button></td>
+                            </div>
+                            <td><strong>Cantidad Total: ${{grandTotal}}</strong></td>
+                            <td *ngIf="totalDolar"><strong>Cantidad Dolar: ${{totalDolar}}</strong></td>
+                            
+                            
                         </tr>
                     </tbody>
                 </table>
@@ -47,18 +65,42 @@
 
     
 </div>
+
+
+
 <ng-container *ngIf="products.length ==0">
-    <div class="container">
-        <div class="card">
-            <h5 class="card-title">My Cart</h5>
+
+<section id="services" class="services">
+    <div class="container" >
+        <!-- start the marketing content -->
+        <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4">
+            <div class="services__content">
+            <div class="icon d-block fa-solid fa-cart-arrow-down"></div>
+            <h3 class="display-3--title mt-1">Carrito</h3>
+            <p class="lh-lg">
+                Tu carrito se encuentra vacio ahora, puedes ir a la tienda por mas productos.
+            </p>
+            <button type="button" class="rounded-pill btn-rounded" routerLink="/panel/product">
+                Tienda
+                <span>
+                <i class="fas fa-arrow-right"></i>
+                </span>
+            </button>
+            </div>
         </div>
-        <div class="center">
-            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
-            <h4>Your cart is empty!</h4>
-            <h6>Add item to it now</h6>
-            <button routerLink="/panel/product" class="btn btn-primary">Shop Now</button>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-end">
+            <div class="services__pic">
+            <img src="assets/images/Shopping cart_Monochromatic.png" alt="marketing illustration" class="img-fluid">
+            </div>
         </div>
-    </div>
+        </div>
+        
+     </div>   
+</section>  
+
 </ng-container>
+<div class="heading-line"></div>
+
 
 <app-footer></app-footer>

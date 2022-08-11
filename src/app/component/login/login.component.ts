@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
   usuario :ILogin = {
     email: '',
     contrasenia: '',
-    id:-1
+    id:-1,
+    nombre:''
   }
   datoUsuario? :ILogin;
 
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
       console.log(this.datoUsuario);
       if(this.datoUsuario?.estado){
         this.login.changeMessage(this.datoUsuario.id);
+        this.login.changeCliente(this.datoUsuario.nombre);
         this.router.navigate(['/panelDeControl']);
       }
     });

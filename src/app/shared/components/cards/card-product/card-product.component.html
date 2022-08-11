@@ -1,6 +1,6 @@
-<div class="dsc-card" *ngIf="data" >
+<!--<div class="dsc-card" *ngIf="data" >
     <div class="dsc-card__img">
-        <!-- <img src="{{data.image}}" alt="">-->
+         <img src="{{data.image}}" alt="">
     </div>
     <div class="dsc-card__info">
         <h2>{{data.nombre}}</h2>
@@ -12,3 +12,31 @@
     <button class="btn btn-primary" routerLink="/panel/product/{{data.id}}">Detalle</button>
     <button class="btn btn-primary" (click)=addtocart(data)>Add to cart</button>
 </div>
+<div class="col-lg-4 col-md-6" *ngIf="data">
+    <div class="portfolio-box shadow">
+      <img src="https://definicion.de/wp-content/uploads/2009/06/producto.png" alt="portfolio 1 image" title="portfolio 1 picture" class="img-fluid">
+      <div class="portfolio-info">
+        <div class="caption">
+          <h4>{{data.nombre}}</h4>
+          <p>{{data.categoria}}</p>
+          <button class="btn btn-outline-primary" routerLink="/panel/product/{{data.id}}">Detalle</button>
+          <button class="btn btn-outline-primary" (click)=addtocart(data)>Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>-->
+<div class="col ">
+    <div class="card" style="width: 18rem;" *ngIf="data">
+    <img class="card-img-top" src="https://definicion.de/wp-content/uploads/2009/06/producto.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{data.nombre}}</h5>
+      <h6 class="card-title">{{data.categoria}}</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-body">
+        <button class="btn btn-outline-primary" routerLink="/panel/product/{{data.id}}">Detalle</button>
+        <button class="btn btn-outline-primary" (click)=addtocart(data)>Add to cart</button>
+    </div>
+  </div>
+</div>
+  

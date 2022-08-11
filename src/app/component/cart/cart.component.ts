@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
   public grandTotal !: number;
   public compra !: ICompra;
   public cliente !:number;
+  public totalDolar !:number;
   constructor(
     private cartService : CartService,
     private productService:ProductsService,
@@ -29,6 +30,11 @@ export class CartComponent implements OnInit {
       this.grandTotal = this.cartService.getTotalPrice();
     });
     this.login.idCliente.subscribe(msg => this.cliente = msg);
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
   removeItem(item: any){
     this.cartService.removeCartItem(item);
@@ -54,7 +60,11 @@ export class CartComponent implements OnInit {
       totalAPagar: this.grandTotal
     }
    
-    this.productService.addCompra(this.compra).subscribe((res:any)=>console.log(res));
+    this.productService.addCompra(this.compra)
+    .subscribe((res:any)=>{
+      console.log(res);
+      this.totalDolar = res.precioEnDolares.toFixed(2);;
+    });
   }
 
 }

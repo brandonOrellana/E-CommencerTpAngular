@@ -2,7 +2,7 @@
 @use '../components/mixins' as *;
 
 .portfolio{
-    padding: 4rem 0;
+    padding-bottom: 4rem ;
     .container{
         padding-top: 2rem;
     }
@@ -14,51 +14,39 @@
 .filter{
     margin-left: 0.2rem;
 }
+.colCenter{
 
-.portfolio-box{
-    position: relative;
-    width: 100%;
-    height: 18.5rem;
-    overflow: hidden;
-    margin-bottom: 1.2rem;
-    border-top: 0.5rem solid $purple-light;
-
-    img{
-        width: 100%;
-        height: 100%;
-    }
-
-    .portfolio-info{
-        background-color: rgba($primary, 0.75);
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        visibility: hidden;
-
-        .caption{
-            text-align: center;
-            color: $white;
-            @include absoluteCenter;
-
-            h4{
-                text-transform: uppercase;
-                display: block;
-            }
-        }
-    }
-    &:hover{
-
+    
+    //align-items: center;
+    
+    .card{
+        text-align: center;   
+        border-top: 0.5rem solid $purple-light;
+        border-radius: 8px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        margin: 20px;
+        overflow: hidden;
+        /*margin-top: 3rem;*/
+        margin-bottom: 3rem;
+        
+        
         img{
-            transform: scale(1.5);
+            width: 300px;
+            height: 250px;
+        }
+
+        &-body{
+            button{
+                margin-left: 5px;
+            }
+            
+        }
+
+        &:hover{
+            transform: translateY(-15px);
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
             @include transitionProperty;
         }
-        .portfolio-info{
-            opacity: 1;
-            visibility: visible;
-            @include transitionProperty;
-        }
-    }
+}
 }

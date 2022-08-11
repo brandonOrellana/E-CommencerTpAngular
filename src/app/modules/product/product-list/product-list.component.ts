@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICardProduct } from '@shared/components/cards/card-product/card-product.metadata';
+import { CartService } from 'app/services/cart.service';
 import { ProductsService } from 'app/services/products.service';
 
 @Component({
@@ -12,12 +13,13 @@ export class ProductListComponent implements OnInit {
   //public products: ICardProduct[] = PRODUCT_DATA;
    public products:any;
    public page = 0;
-   public size = 5;
+   public size = 8;
    public total: number = 0;
    public i = 2;
 
   constructor(
-    private service:ProductsService
+    private service:ProductsService,
+    private cartService : CartService
   ) { }
 
   ngOnInit(): void {
@@ -38,4 +40,7 @@ export class ProductListComponent implements OnInit {
     this.getProducts();
   }
 
+  addtocart(item: any){
+    this.cartService.addtoCart(item);
+  }
 }
