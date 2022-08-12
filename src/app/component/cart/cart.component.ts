@@ -59,11 +59,15 @@ export class CartComponent implements OnInit {
       moneda: "pesos",
       totalAPagar: this.grandTotal
     }
+    if(this.cliente <=0){
+      alert("No se encuantra logeado");
+      return
+    }
    
     this.productService.addCompra(this.compra)
     .subscribe((res:any)=>{
       console.log(res);
-      this.totalDolar = res.precioEnDolares.toFixed(2);;
+      this.totalDolar = res.precioEnDolares.toFixed(2);
     });
   }
 

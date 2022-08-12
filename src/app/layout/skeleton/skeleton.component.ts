@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkeletonComponent implements OnInit {
 
+  public show = true;
   constructor() { }
 
   ngOnInit(): void {

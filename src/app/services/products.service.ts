@@ -2,20 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICompra } from 'app/interfaces/compra.metadata';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  private url = 'http://localhost:8080/productos/page';
+  //private url = 'http://localhost:8080/productos/page';
   private urlCompra = 'http://localhost:8080/compra';
+  private url = environment.uri;
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
   getProducts(page:number,size:number){
-    return this.httpClient.get(this.url + '?page=' + page + '&size='+size);
+    return this.httpClient.get(this.url+'productos/page' + '?page=' + page + '&size='+size);
   }
 
   private test :ICompra = {
@@ -39,6 +41,6 @@ export class ProductsService {
     });
     const body=JSON.stringify(compra);
     console.log(body);
-    return this.httpClient.post<any>("http://localhost:8080/compra",body,{headers: httpHeaders});
+    return this.httpClient.post<any>(this.url +'compra',body,{headers: httpHeaders});
   }
 }
