@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './component/cart/cart.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { FormComponent } from './component/form/form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegisterComponent } from './component/register/register.component';
     FooterComponent,
     CartComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
