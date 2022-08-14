@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ICliente } from 'app/interfaces/cliente.metada';
 import { ICompra } from 'app/interfaces/compra.metadata';
 import { ILogin } from 'app/interfaces/login.metadata';
 import { environment } from 'environments/environment';
@@ -44,4 +45,15 @@ export class ApiService {
   getProductById(id:number){
     return this.httpClient.get(this.url + 'productos/'+id);
   }
+
+  addNewCliente(cliente:ICliente){
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    const body=JSON.stringify(cliente);
+    return this.httpClient.post<any>(this.url+'clientes',body,{headers: httpHeaders});
+  }
+
+
 }
