@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   valido?:boolean;
 
   constructor(
-    private loginService: ApiService,
+    private loginService: ApiService, //Renombrar como apiService
     private router: Router,
     private login: LoginService
     ) { }

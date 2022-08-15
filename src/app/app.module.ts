@@ -15,6 +15,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { FormComponent } from './component/form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,12 @@ import { FormComponent } from './component/form/form.component';
   ],
   imports: [
     BrowserModule,
-    //core
     CoreModule,
     SharedModule,
     AppRoutingModule,
     NgxPaginationModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide:LocationStrategy,

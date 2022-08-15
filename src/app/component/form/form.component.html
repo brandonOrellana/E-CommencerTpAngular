@@ -1,46 +1,122 @@
-<form>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+<!--<body>
+
+  <section class="d-flex justify-content-center align-items-center">
+    <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4 p-4">
+      <div class="mb-4 d-flex justify-content-start align-items-center"> 
+        <h4>  <i class="bi bi-chat-left-quote"></i> &nbsp; Registro</h4>
+    </div>
+      <div class="mb-1">
+        <form id = "contacto" >
+            <div class="mb-4 d-flex justify-content-between"> 
+                <div>
+                    <label for="nombre"> <i class="bi bi-person-fill"></i> Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder= "ej: Gabriel" required>
+                    <div class="nombre text-danger "></div>
+                </div>
+                <div >
+                    <label for="apellido"> <i class="bi bi-person-bounding-box"></i> Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="apellido" placeholder= "ej: Pacheco" required>
+                    <div class="apellido text-danger"></div>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="correo"><i class="bi bi-envelope-fill"></i> Correo</label>
+                <input type="email" class="form-control" name="correo" id="correo" placeholder= "ej: gpmcheco@mail.com" required>
+                <div class="correo text-danger"></div>
+            </div> 
+            <div class="mb-4">
+                <label for="rol"><i class="bi bi-gender-ambiguous"></i> Rol: </label>
+                <input type="radio" class="form-check-input"  name="rol"  value="cliente" > Cliente
+                <input type="radio" class="form-check-input" name="rol"  value="vendedor" > Vendedor
+                <div class="rol text-danger"></div>
+            </div>  
+            <div class="mb-4">
+                <label for="mensaje"> <i class="bi bi-chat-right-dots-fill" required></i> Mensaje</label>
+                <textarea name="mensaje" id="mensaje" class="form-control" placeholder="ej: hola"></textarea>
+                <div class="mensaje text-danger"></div>
+            </div> 
+            <div class="mb-2">
+                <button id ="botton" class="col-12 btn btn-primary d-flex justify-content-between ">
+                    <span>Enviar </span><i id="icono" class="bi bi-cursor-fill "></i>
+                </button>
+            </div>   
+        </form>
       </div>
     </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </section>
+</body>-->
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <input type="radio" name="rol" value="cliente"  [(ngModel)]="rol">Cliente<br>
+      <input type="radio" name="rol" value="vendedor"  [(ngModel)]="rol">Vendedor<br>
+      {{rol}}
+      <form [formGroup]="miFormulario" (ngSubmit)="send()">
+        Nombre: <input 
+            [class.is-invalid]="miFormulario.get('nombre')?.touched && miFormulario.get('nombre')?.invalid"
+            type="text" 
+            class="form-control" 
+            formControlName="nombre">
+
+        Apellido: <input 
+            [class.is-invalid]="miFormulario.get('apellido')?.touched && miFormulario.get('apellido')?.invalid"
+            type="text" 
+            class="form-control" 
+            formControlName="apellido">
+
+        Gmail: <input 
+            [class.is-invalid]="miFormulario.get('gmail')?.touched && miFormulario.get('gmail')?.invalid"
+            type="text" 
+            class="form-control" 
+            formControlName="gmail">
+
+        Telefono: <input 
+            [class.is-invalid]="miFormulario.get('telefono')?.touched && miFormulario.get('telefono')?.invalid"
+            type="text" 
+            class="form-control" 
+            formControlName="telefono">
+        Dni: <input 
+            [class.is-invalid]="miFormulario.get('dni')?.touched && miFormulario.get('dni')?.invalid"
+            type="number" 
+            class="form-control" 
+            formControlName="dni">
+
+        Fecha <input 
+            type="date" 
+            formControlName="fechaNacimiento">
+
+            <div formGroupName="direccion">
+              <p>calle
+                <input type="text" formControlName="calle">
+              </p>
+              <p>ciudad:
+                <input type="text" formControlName="ciudad">
+              </p>
+              <p>codigoPostal:
+                <input type="text" formControlName="codigoPostal">
+              </p>
+              <p>pais:
+                <input type="text" formControlName="pais">
+              </p>
+            </div>
+            <div formGroupName="cuenta">
+              <p>usuario
+                <input type="text" formControlName="usuario">
+              </p>
+              <p>contrasenia:
+                <input type="password" formControlName="contrasenia">
+              </p>
+            </div>
+            
+
+        <button [disabled]="miFormulario.invalid" class="btn btn-primary">Enviar</button>
+      </form>
+
+      <p>
+        {{miFormulario.value | json}}
+      </p>
     </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
+  </div>
+</div>
+</body>

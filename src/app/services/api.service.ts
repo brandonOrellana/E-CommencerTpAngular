@@ -46,13 +46,22 @@ export class ApiService {
     return this.httpClient.get(this.url + 'productos/'+id);
   }
 
-  addNewCliente(cliente:ICliente){
+  addNewCliente(cliente:ICliente): Observable<any>{
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache'
     });
     const body=JSON.stringify(cliente);
     return this.httpClient.post<any>(this.url+'clientes',body,{headers: httpHeaders});
+  }
+
+  addNewVendedor(cliente:ICliente): Observable<any>{
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    const body=JSON.stringify(cliente);
+    return this.httpClient.post<any>(this.url+'vendedores',body,{headers: httpHeaders});
   }
 
 
