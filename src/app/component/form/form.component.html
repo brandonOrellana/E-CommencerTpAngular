@@ -45,74 +45,118 @@
     </div>
   </section>
 </body>-->
+
+
+
+
 <body>
+
+<h1>Registro de inscripcion</h1>
+  
   <div class="container">
-  <div class="row">
-    <div class="col">
-      <input type="radio" name="rol" value="cliente"  [(ngModel)]="rol">Cliente<br>
-      <input type="radio" name="rol" value="vendedor"  [(ngModel)]="rol">Vendedor<br>
-      {{rol}}
-      <form [formGroup]="miFormulario" (ngSubmit)="send()">
-        Nombre: <input 
-            [class.is-invalid]="miFormulario.get('nombre')?.touched && miFormulario.get('nombre')?.invalid"
-            type="text" 
-            class="form-control" 
-            formControlName="nombre">
+    <div class="row ">
+      <div class="col-3">
+        <input type="radio" name="rol" value="cliente"  [(ngModel)]="rol">Cliente<br>
+        <input type="radio" name="rol" value="vendedor"  [(ngModel)]="rol">Vendedor<br>
+      </div>
 
-        Apellido: <input 
-            [class.is-invalid]="miFormulario.get('apellido')?.touched && miFormulario.get('apellido')?.invalid"
-            type="text" 
-            class="form-control" 
-            formControlName="apellido">
+    <div class="col-9">
+      <div class="loginBox">
+        <form [formGroup]="miFormulario" (ngSubmit)="send()">
+         <div class="row">
+          <div class="col-6">
+             <p>Nombre:</p>  <input 
+                [class.is-invalid]="miFormulario.get('nombre')?.touched && miFormulario.get('nombre')?.invalid"
+                type="text" 
+                class="form-control" 
+                formControlName="nombre">
+            </div>
+            <div class="col-6">
+               <p>Apellido:</p>  <input 
+                [class.is-invalid]="miFormulario.get('apellido')?.touched && miFormulario.get('apellido')?.invalid"
+                type="text" 
+                class="form-control" 
+                formControlName="apellido">
+            </div>
+         </div>
 
-        Gmail: <input 
+         <p>Gmail:</p>  <input 
             [class.is-invalid]="miFormulario.get('gmail')?.touched && miFormulario.get('gmail')?.invalid"
             type="text" 
             class="form-control" 
             formControlName="gmail">
 
-        Telefono: <input 
+         <div class="row">
+          <div class="col-6">
+          <p>Telefono: </p> <input 
             [class.is-invalid]="miFormulario.get('telefono')?.touched && miFormulario.get('telefono')?.invalid"
             type="text" 
             class="form-control" 
             formControlName="telefono">
-        Dni: <input 
+          </div>
+          <div class="col-6">
+          <p>Dni:</p>  <input 
             [class.is-invalid]="miFormulario.get('dni')?.touched && miFormulario.get('dni')?.invalid"
             type="number" 
             class="form-control" 
             formControlName="dni">
-
-        Fecha <input 
+          </div>
+        </div>
+        <p>Fecha: </p> <input 
             type="date" 
+            class="form-control" 
             formControlName="fechaNacimiento">
-
-            <div formGroupName="direccion">
-              <p>calle
-                <input type="text" formControlName="calle">
-              </p>
-              <p>ciudad:
-                <input type="text" formControlName="ciudad">
-              </p>
-              <p>codigoPostal:
-                <input type="text" formControlName="codigoPostal">
-              </p>
-              <p>pais:
-                <input type="text" formControlName="pais">
-              </p>
+        <div formGroupName="direccion">
+          <div class="row">
+            <div class="col-3">
+              <p>Calle:</p>  <input 
+                type="text" 
+                class="form-control"
+                formControlName="calle">
             </div>
-            <div formGroupName="cuenta">
-              <p>usuario
-                <input type="text" formControlName="usuario">
-              </p>
-              <p>contrasenia:
-                <input type="password" formControlName="contrasenia">
-              </p>
+            <div class="col-3">
+              <p>Ciudad:</p>  <input 
+                type="text" 
+                class="form-control" 
+                formControlName="ciudad">
             </div>
-            
+            <div class="col-3">
+              <p> CodigoPostal:</p> <input 
+                type="text" 
+                class="form-control" 
+                formControlName="codigoPostal">
+            </div>
+            <div class="col-3">
+              <p>Pais:</p>  <input 
+                type="text" 
+                class="form-control" 
+                formControlName="pais">
+            </div>
+          </div>
+        </div>
 
-        <button [disabled]="miFormulario.invalid" class="btn btn-primary">Enviar</button>
+          <div formGroupName="cuenta">
+            <div class="row">
+              <div class="col-6">
+                 <p>Usuario:</p>  <input 
+                  type="text" 
+                  class="form-control" 
+                  formControlName="usuario">
+              </div>
+              <div class="col-6">
+                 <p>Contrasenia:</p>  <input 
+                  type="password" 
+                  class="form-control"
+                  formControlName="contrasenia">
+              </div>
+             </div>
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button [disabled]="miFormulario.invalid" class="btn btn-primary btn-lg btn-block">Enviar</button>
+          </div>
       </form>
-
+      </div>
+        
       <p>
         {{miFormulario.value | json}}
       </p>
