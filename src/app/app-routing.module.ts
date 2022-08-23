@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
+import { AddProductComponent } from './component/add-product/add-product.component';
 import { CartComponent } from './component/cart/cart.component';
 import { FormComponent } from './component/form/form.component';
 import { LoginComponent } from './component/login/login.component';
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path: 'register',
     component:RegisterComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'add',
+    component:AddProductComponent,
     pathMatch: 'full'
   },
   {
