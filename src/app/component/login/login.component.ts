@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     nombre:''
   }
   datoUsuario? :ILogin;
-
+  public rol:string | undefined;
   valido?:boolean;
 
   constructor(
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Ingresar(){
+  ingresoUsuario(){
     this.loginService.authLogin(this.usuario)
     .subscribe((res:any)=>{
       this.datoUsuario = res;
@@ -38,9 +38,21 @@ export class LoginComponent implements OnInit {
       if(this.datoUsuario?.estado){
         this.login.changeMessage(this.datoUsuario.id);
         this.login.changeCliente(this.datoUsuario.nombre);
-        this.router.navigate(['/panelDeControl']);
+
+        if(this.rol === "vendedor"){
+          this.router.navigate(['/add']);
+        }else{
+          this.router.navigate(['/panelDeControl']);
+        }
       }
     });
+  }
+
+  Ingresar(){
+    /*if(this.rol === "vendedor"){
+      this.router.navigate(['/add']);
+    }*/
+    this.ingresoUsuario();
   }
 
 }

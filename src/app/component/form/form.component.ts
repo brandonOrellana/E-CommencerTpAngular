@@ -45,11 +45,11 @@ export class FormComponent implements OnInit {
       .subscribe((res:any) => {
         console.log(res);
       });
-    }else{
-      this.apiService.addNewCliente(cliente)
-      .subscribe((res:any) => {
-        console.log(res);
-      });
+      }else{
+        this.apiService.addNewCliente(cliente)
+        .subscribe((res:any) => {
+          console.log(res);
+        });
+      }
     }
   }
-}
