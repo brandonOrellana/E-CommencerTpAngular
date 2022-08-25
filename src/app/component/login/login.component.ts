@@ -38,21 +38,35 @@ export class LoginComponent implements OnInit {
       if(this.datoUsuario?.estado){
         this.login.changeMessage(this.datoUsuario.id);
         this.login.changeCliente(this.datoUsuario.nombre);
-
-        if(this.rol === "vendedor"){
-          this.router.navigate(['/add']);
-        }else{
-          this.router.navigate(['/panelDeControl']);
-        }
+        this.router.navigate(['/panelDeControl']);
+      }else{
+        alert(this.datoUsuario?.mensage);
+      }
+    });
+  }
+  ingresoVendedor(){
+    this.loginService.authLoginVendedor(this.usuario)
+    .subscribe((res:any)=>{
+      this.datoUsuario = res;
+      //console.log(res)
+      console.log(this.datoUsuario);
+      if(this.datoUsuario?.estado){
+        this.login.changeMessage(this.datoUsuario.id);
+        this.login.changeCliente(this.datoUsuario.nombre);
+        this.router.navigate(['/add']);
+      }else{
+        alert(this.datoUsuario?.mensage);
       }
     });
   }
 
   Ingresar(){
-    /*if(this.rol === "vendedor"){
-      this.router.navigate(['/add']);
-    }*/
-    this.ingresoUsuario();
+    if(this.rol === "vendedor"){
+      this.ingresoVendedor();
+    }else{
+      this.ingresoUsuario();
+    }
+    
   }
 
 }

@@ -36,15 +36,15 @@ export class ApiService {
     const body=JSON.stringify(login);
     return this.httpClient.post<any>(this.url + 'login',body,{headers: httpHeaders});
   }
-  //nececitpo to da l estructura del backend
-  /*authLoginVendedor(login:ILogin): Observable<ILogin>{
+
+ authLoginVendedor(login:ILogin): Observable<ILogin>{
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache'
     });
     const body=JSON.stringify(login);
-    return this.httpClient.post<any>(this.url + 'login',body,{headers: httpHeaders});
-  }*/
+    return this.httpClient.post<any>(this.url + 'loginVendedor',body,{headers: httpHeaders});
+  }
 
 
   getProductsFiltro(filtro:string, page:number,size:number){
