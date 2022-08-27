@@ -54,8 +54,23 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'seller',
+    component: SkeletonComponent,
+    children: [
+      {
+        path: 'product',
+        loadChildren: () => import('@modules/seller/seller.module').then( (m) => m.SellerModule)
+      },
+      {
+        path:'**',
+        redirectTo: '/seller/product',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
     path:'**',
-    redirectTo: '/panel/product',
+    redirectTo: '/seller/product',
     pathMatch: 'full'
   }
 ];

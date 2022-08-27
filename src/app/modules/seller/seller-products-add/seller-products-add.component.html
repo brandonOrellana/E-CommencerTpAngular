@@ -1,0 +1,63 @@
+<p>add-product works!</p>
+<div class="container">
+  <form [formGroup]="miFormulario" (ngSubmit)="send()">
+    <div class="row">
+     <div class="col-6">
+        <p>Nombre:</p>  <input 
+           [class.is-invalid]="miFormulario.get('nombre')?.touched && miFormulario.get('nombre')?.invalid"
+           type="text" 
+           class="form-control" 
+           formControlName="nombre">
+       </div>
+       <div class="col-6">
+          <p>Descripcion:</p>  <input 
+           [class.is-invalid]="miFormulario.get('descripcion')?.touched && miFormulario.get('descripcion')?.invalid"
+           type="text" 
+           class="form-control" 
+           formControlName="descripcion">
+       </div>
+    </div>
+
+    <p>Stock:</p>  <input 
+       [class.is-invalid]="miFormulario.get('gmail')?.touched && miFormulario.get('gmail')?.invalid"
+       type="number" 
+       class="form-control" 
+       formControlName="stock">
+
+    <div class="row">
+     <div class="col-6">
+     <p>Precio: </p> <input 
+       [class.is-invalid]="miFormulario.get('telefono')?.touched && miFormulario.get('telefono')?.invalid"
+       type="number" 
+       class="form-control" 
+       formControlName="precio">
+     </div>
+     <div class="col-6">
+     <p>Imagen:</p>  <input 
+       [class.is-invalid]="miFormulario.get('dni')?.touched && miFormulario.get('dni')?.invalid"
+       type="text" 
+       class="form-control" 
+       formControlName="imagen">
+     </div>
+   </div>
+   
+     <div formGroupName="categoria">
+       <div class="row">
+         <div class="col-6">
+            <p>Categoria:</p>  <input 
+             type="number" 
+             class="form-control"
+             formControlName="id">
+         </div>
+        </div>
+     </div>
+
+     
+
+{{miFormulario.value | json}}
+{{id}}
+     <div class="d-grid gap-2 col-6 mx-auto">
+       <button [disabled]="miFormulario.invalid" class="btn btn-primary btn-lg btn-block">Enviar</button>
+     </div>
+ </form>
+</div>
